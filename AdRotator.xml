@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+	<Ad>
+		<ImageUrl>~\images\winter-sale-banner.jpeg</ImageUrl>
+		<Width>1200pt</Width>
+		<Height>150pt</Height>
+		
+		
+	</Ad>
+	<Ad>
+		<ImageUrl>~\images\valentine-day-banner.jpg</ImageUrl>
+		<Width>1200pt</Width>
+		<Height>150pt</Height>
+		
+	</Ad>
+</Advertisements>

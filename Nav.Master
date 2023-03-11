@@ -1,0 +1,171 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Nav.Master.cs" Inherits="WebDevAssignment2._0.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - The Thriwft Store</title>
+
+    
+    <link href="images/mylogo-transformed.png" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="WebsiteStyling.css" />
+    <style type="text/css">
+        
+        .homeTable {
+            
+            width: 400px;
+            height: 89px;
+            text-align: center;
+            
+        }
+        td.ht{
+            text-align:center; 
+            padding-block:auto; 
+            padding-top:10px;
+            padding-bottom:10px;
+            text-align:center;
+            vertical-align:middle;
+        }
+        td.ht1{
+            width:100px;
+            text-align:center; 
+            padding-block:auto; 
+            padding-top:10px;
+            padding-bottom:10px;
+            text-align:center;
+            vertical-align:middle;
+        }
+        td.ProdDetails{
+            padding:20px;
+            font-size:20px;
+            
+        }
+        table.cart{
+            text-align:center; 
+            margin-left:auto;
+            margin-right:auto; 
+            padding-right:20px;
+            padding-left:20px;
+            font-family: Arial;
+            font-size: medium;
+            font-weight: bold;
+
+        }
+        .shipping{
+            margin-left:auto;
+            margin-right:auto; 
+            padding-right:20px;
+            padding-left:20px;
+            font-family: Arial;
+            font-size: medium;
+        }
+        table.Products {
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2px;
+            font-family: Arial;
+            font-size: medium;
+            font-weight: bold;
+            text-align: center;
+        }
+        td.Border {
+            padding: 20px;
+            border: 2px solid #808080;
+            text-align:center; 
+            margin-left:auto;
+            margin-right:auto; 
+        }
+        table.Border{
+            padding: 20px;
+            border: 2px solid #808080;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: Arial;
+            font-size: medium;
+            font-weight: bold;
+            text-align: center;
+        }
+        .footer {
+            background-color: #1E212D;
+            position: fixed;
+            bottom: 0%;
+            left: 0%;
+            text-align: center;
+            width: 100%;
+            color: #7C6F57;
+            font-weight: bold;
+            font-family: Arial;
+            padding: 5px;
+        }
+
+        .hr {
+            color: black;
+            border: thin solid #000000;
+        }
+        .auto-style1 {
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+<body>
+    <form runat="server">
+           <nav style="background-color:#1E212D;" class="navBar">
+        <asp:Image ID="logoImg" runat="server" Height="88px" Width="140px" ImageAlign="Left" AlternateText="Logo Here" ImageUrl="~\images\mylogo-transformed.png" style="margin-left:10px; margin-right:30px;" />
+            <asp:ImageButton ID="cartImg" runat="server" AlternateText="Cart-img" Height="39px" Width="58px" ImageAlign="Right" ImageUrl="~/images/cart-logo.png"   style="margin-top:15px; margin-bottom:15px; margin-right:10px;  padding:10px;" OnClick="cartImg_Click" />
+            
+            
+            <table class="homeTable">
+                <tr>
+                    <td class="ht">
+                        <asp:LinkButton ID="LnkHome_Cart" runat="server" Text="Home" OnClick="LnkHome1_Click" CssClass="auto-style1" Font-Bold="True" Font-Names="Arial" Font-Size="Medium" ForeColor="#7C6F57"></asp:LinkButton>
+            
+                    </td>
+                    <td class="ht">
+                        <asp:LinkButton ID="contact_Cart" runat="server" Text="Contact US" OnClick="contact_Cart_Click" CssClass="auto-style1" Font-Bold="True" Font-Names="Arial" Font-Size="Medium" ForeColor="#7C6F57"></asp:LinkButton>
+                    </td>
+                    <td class="ht1">
+                         <asp:Menu ID="MyAccount" runat="server" BackColor="#1E212D" Font-Names="Arial" Font-Size="Medium" ForeColor="#7C6F57" Orientation="Horizontal" Font-Bold="True" RenderingMode="Table" StaticEnableDefaultPopOutImage="False" StaticPopOutImageTextFormatString="" OnMenuItemClick="MyAccount_MenuItemClick" Width="100px">
+                            <DynamicHoverStyle BackColor="#7C6F57" ForeColor="White" />
+                            <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                            <DynamicMenuStyle BackColor="#F7F6F3" />
+                            <DynamicSelectedStyle BackColor="#5D7B9D" />
+                            <DynamicItemTemplate>
+                                <%# Eval("Text") %>
+                            </DynamicItemTemplate>
+                            <Items>
+                                <asp:MenuItem Text="My Account" Value="MyAccount">
+                                    <asp:MenuItem Text="Name" Value="New Item"></asp:MenuItem>
+                                    <asp:MenuItem Text="Email" Value="UserEmail1"></asp:MenuItem>
+                                    <asp:MenuItem Text="Mobile No." Value="Mobile No."></asp:MenuItem>
+                                    <asp:MenuItem Text="LogOut" Value="LogOut"></asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem></asp:MenuItem>
+                            </Items>
+                        </asp:Menu>
+                    </td>
+                    <td class="ht">
+                        <asp:LinkButton ID="MyOrders" runat="server" Text="My Orders" OnClick="MyOrders_Click" CssClass="auto-style1" Font-Bold="True" Font-Names="Arial" Font-Size="Medium" ForeColor="#7C6F57"></asp:LinkButton>
+                    </td>
+                     </tr>
+                
+            </table>
+            </nav>
+        <footer class="footer">
+
+            <%--<div style="margin-left:10px; margin-right:20px; margin-top:10px; margin-bottom:10px;" class="auto-style1">
+        <asp:AdRotator ID="AdRotator1" runat="server" AdvertisementFile="~/AdRotator.xml"  Target="_top" />
+    </div>--%>
+            <p style="margin: 0px; padding: 5px;">&copy; <%: DateTime.Now.Year %> - The Thriwft Store</p>
+
+        </footer>
+    <div style="margin-left:10px; margin-right:10px;">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">    
+    </asp:ContentPlaceHolder>
+    </div>
+    </form>
+    
+</body>
+</html>
